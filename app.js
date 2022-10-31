@@ -2,18 +2,12 @@
 //app.js est un constructeur avec des propriétés qu'on developpera dans les autres classes
 
 // la methode require importe la totalité du module
-const express = require('express');
+const express = require("express");
 const app = express();
-const mysql = require('mysql');
+const mysql = require("mysql");
 
-//connection au base de données
-const connection = mysql.createConnection({
-    host: 'localhost',
-    user: 'root',
-    password: 'root',
-    database: 'meuble'
-  });
-  connection.connect((err) => {
-    if (err) throw err;
-    console.log('Connected!');
-  });
+app.use((req, res) => {
+  res.json({ message: "Votre requête a bien été reçue !" });
+});
+
+module.exports = app;
