@@ -5,15 +5,7 @@
 const express = require('express');
 const app = express();
 const mysql = require('mysql');
-
-//connection au base de données
-const connection = mysql.createConnection({
-    host: 'localhost',
-    user: 'root',
-    password: 'root',
-    database: 'meuble'
-  });
-  connection.connect((err) => {
-    if (err) throw err;
-    console.log('Connected!');
-  });
+app.use((req,res)=>{
+  res.json({message:"Sandrine enfin"});
+});
+module.exports = app;
