@@ -15,5 +15,9 @@
   "bugs": {
     "url": "https://github.com/adatechschool/projet-collectif---back-no_names/issues"
   },
-  "homepage": "https://github.com/adatechschool/projet-collectif---back-no_names#readme"
+  "homepage": "https://github.com/adatechschool/projet-collectif---back-no_names#readme",
+  "dependencies": {
+    "express": "^4.18.2",
+    "mysql": "^2.18.1"
+  }
 }
