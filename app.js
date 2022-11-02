@@ -6,6 +6,11 @@ const express = require("express");
 const app = express();
 const mysql = require("mysql");
 
+app.use((req, res, next) => {
+  console.log("Requête reçue !");
+  next();
+});
+
 app.use((req, res) => {
   res.json({ message: "Votre requête a bien été reçue !" });
 });
