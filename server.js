@@ -1,6 +1,5 @@
-// //création et lecture de http par node(protocole/pont) qu'on stock dans const http
-// const http = require("http");
-// //pour appeller le fichier app.js on le stock dans un const app
+//création et lecture de http par node(protocole/pont) qu'on stock dans const http
+//pour appeller le fichier app.js on le stock dans un const app
 // const app = require('./app');
 // //pour afficher ce qu'il y a dans app.js on utilise la méthode set
 // app.set('port', process.env.PORT || 8000);
@@ -20,20 +19,8 @@ const zoe=0
 app.use(express.json())
 //connect to DB
 mongoose
-    .connect("mongodb+srv://root:root@cluster0.nvt3sgm.mongodb.net/test")
-    .then(
-        () => console.log("DB connection established")
-    )
-    .catch(
-        err => console.log(err)
-    );
-
-//Check dans route
-//stock la route dans une const
-
-//app = server et method use interroge ce qu'il y a dans ma database
-app.use("/api",productRoute)
-
-//launching a server
-app.listen(process.env.PORT || 8000, () =>
-    console.log("server running on 8000..."));
+  .connect(
+    "mongodb+srv://mariellek:Ilovemycat66@cluster0.haiercr.mongodb.net/test"
+  )
+  .then(() => console.log("DB connection established"))
+  .catch((err) => console.log(err));
