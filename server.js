@@ -14,6 +14,7 @@ const productRoute = require("./routes/products");
 const express = require("express")
 const mongoose = require("mongoose")
 const app=express()
+const zoe=0
 
 //pou passer des données en json
 app.use(express.json())
