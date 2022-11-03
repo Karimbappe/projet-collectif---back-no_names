@@ -13,14 +13,19 @@ const productRoute = require("./routes/products");
 const express = require("express")
 const mongoose = require("mongoose")
 const app=express()
-const zoe=0
+const dotenv = require("dotenv")
+dotenv.config()
 
 //pou passer des données en json
 app.use(express.json())
+app.use("/api",productRoute)
 //connect to DB
 mongoose
-  .connect(
-    "mongodb+srv://mariellek:Ilovemycat66@cluster0.haiercr.mongodb.net/test"
-  )
+  .connect(process.env.MONGO_URL)
   .then(() => console.log("DB connection established"))
   .catch((err) => console.log(err));
+
+
+  app.listen(process.env.PORT || 8000, ()=>{
+    console.log("server running on 8000 ...")
+  })
