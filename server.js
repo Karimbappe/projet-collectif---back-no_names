@@ -1,3 +1,4 @@
+
 const express = require("express");
 const { products } = require("./data/products.js");
 const app = express();
@@ -5,6 +6,7 @@ const mongoose = require("mongoose");
 const userRoute = require("./routes/user");
 const authRoute = require("./routes/auth");
 const productRoute = require("./routes/product");
+//const getProductRoute = require("./routes/getProduct")
 const dotenv = require("dotenv");
 dotenv.config();
 
@@ -21,12 +23,17 @@ app.use((req, res, next) => {
   );
   next();
 });
+
+
 //to be able pass json data
 app.use(express.json());
+
+
 //routes
-app.use("/api/auth", authRoute);
-app.use("/api/users", userRoute);
-app.use("/api/produits", productRoute);
+app.use("/api", authRoute);
+app.use("/api", userRoute);
+app.use("/api", productRoute);
+//app.use("/api", getProductRoute);
 
 //connect to DB
 mongoose
