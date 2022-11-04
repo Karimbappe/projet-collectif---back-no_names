@@ -1,4 +1,3 @@
-
 const express = require("express");
 const { products } = require("./data/products.js");
 const app = express();
@@ -6,10 +5,10 @@ const mongoose = require("mongoose");
 const userRoute = require("./routes/user");
 const authRoute = require("./routes/auth");
 const productRoute = require("./routes/product");
+
 //const getProductRoute = require("./routes/getProduct")
 const dotenv = require("dotenv");
 dotenv.config();
-
 
 //to avoid CORS cross origin errors since we will use react and node server
 app.use((req, res, next) => {
@@ -25,10 +24,8 @@ app.use((req, res, next) => {
   next();
 });
 
-
 //to be able pass json data
 app.use(express.json());
-
 
 //routes
 app.use("/api", authRoute);
@@ -58,7 +55,9 @@ app.get("/api/productz", (req, res) => {
 
 //single product
 app.get("/api/productz/:category", (req, res) => {
-  const singleProduct = products.find((p) => p.category === req.params.category);
+  const singleProduct = products.find(
+    (p) => p.category === req.params.category
+  );
   res.json(singleProduct);
 });
 
@@ -66,10 +65,10 @@ app.get("/", (req, res) => {
   res.send("API is running ...");
 });
 
-
-app.use('/', (req, res, next) => {
+//filtre
+app.use("/", (req, res, next) => {
   const filters = req.query;
-  const filteredUsers = products.filter(user => {
+  const filteredUsers = products.filter((user) => {
     let isValid = true;
     for (key in filters) {
       console.log(key, user[key], filters[key]);
