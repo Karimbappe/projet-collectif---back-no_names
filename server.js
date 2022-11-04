@@ -1,5 +1,4 @@
 const express = require("express");
-const { products } = require("./data/products.js");
 const app = express();
 const mongoose = require("mongoose");
 const userRoute = require("./routes/user");
@@ -39,50 +38,11 @@ mongoose
   .then(() => console.log("DB connection established"))
   .catch((err) => console.log(err));
 
-//Affiche tous les produits (from : fichier donnée en dur)
-app.get("/api/productss", (req, res) => {
-  res.json(products);
-});
 
-//Affiche les 3 propriétés citées dans le code  
-app.get("/api/productz", (req, res) => {
-  const partsOfProduct = products.map((p) => {
-    const { id, name, image, category } = p;
-    return { id, name, image, category };
-  });
-  res.json(partsOfProduct);
-});
-
-// //single product
-// app.get("/api/productz/:id", (req, res) => {
-//   const singleProduct = products.find((p) => p.id === req.params.id);
-//   res.json(singleProduct);
-// });
-
-// //Afficher uniquement que les catégories
-// app.get("/api/productz/", (req, res) => {
-//   const partsOfProduct = products.map((p) => {
-//     const {category } = p;
-//     return { category };
-//   });
-//   res.json(partsOfProduct);
-// });
-
-//Filtrer un critère dans la catégorie
-app.get("/api/productz/category", (req, res) => {
-  const sousCategorieProduct = products.findone((p) => p.chaise === req.params.chaise);
-  res.json(sousCategorieProduct);
-});
-
-
-app.get("/", (req, res) => {
-  res.send("API is running ...");
-});
-
-//filtre
-app.use("/", (req, res, next) => {
+  //filter
+app.use('/filter', (req, res, next) => {
   const filters = req.query;
-  const filteredUsers = products.filter((user) => {
+  const filteredUsers = productRoute.filter(user => {
     let isValid = true;
     for (key in filters) {
       console.log(key, user[key], filters[key]);
