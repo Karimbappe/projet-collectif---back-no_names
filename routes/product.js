@@ -37,18 +37,28 @@ router.get("/product", async(req, res) => {
 })
 
  //filtrer
- router.get('/filter', (req, res, next) => {
+ router.get('/filter', async (req, res, next) => {
+    // req query retourn ce qu'on lui demande (?category=Chaise, (plus si tu veux :))
     const filters = req.query;
-    console.log("cela rentre")
-    const filteredUsers = productRoute.filter(user => {
+    console.log(filters)
+    // listProducts va chercher le model de Product et fait marcher la fonction find () de  node pour retourner tous les products
+    const listProducts = await Product.find()
+    //La const filteredProducts va prendre le tableau des produits et va utiliser la fonction filtrer pour filtrer selon le filters
+
+    //product est un élément du tableau des Produits et passe un à un (comme les index) et passe chaque produit par des condition
+    const filteredProducts = listProducts.filter(product => {
+        // isValid est définie comme vraie pour initier le filtrage
       let isValid = true;
+
+      //les cléfs dans le var filters sert à parcourir les clefs
       for (key in filters) {
-        console.log(key, user[key], filters[key]);
-        isValid = isValid && user[key] == filters[key];
+        // console.log(key, product[key], filters[key]);
+        isValid = isValid && product[key] == filters[key];
       }
       return isValid;
     });
-    res.send(filteredUsers);
+    res.send(filteredProducts);
+
   });
   
 
