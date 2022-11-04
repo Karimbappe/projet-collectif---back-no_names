@@ -6,11 +6,13 @@ const CryptoJS = require("crypto-js");
 const jwt = require("jsonwebtoken")
 
 
+
 //REGISTER
 router.post("/register", async (req, res) => {
     const newUser = new User({
         username: req.body.username,
         email: req.body.email,
+
         //cryptojs pour hasher mdp ciphers
         password: CryptoJS.AES.encrypt(req.body.password, PASS_SEC).toString()
     })
@@ -38,8 +40,10 @@ router.post("/login", async (req, res) => {
     !user && res.status(401).json("wrong credentials")
 
     //Password
-    const hashedPassword = CryptoJS.AES.decrypt(user.password, PASS_SEC);
     //dehash password
+    const hashedPassword = CryptoJS.AES.decrypt(user.password, PASS_SEC);
+
+    
     const Originalpassword = hashedPassword.toString(CryptoJS.enc.Utf8) 
     Originalpassword !== req.body.password && res.status(401).json("wrong credentials");
 

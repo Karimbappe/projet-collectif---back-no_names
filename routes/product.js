@@ -3,8 +3,8 @@ const { Router } = require("express");
 const Product = require("../models/Product")
 
 
-//Produits
-router.post("/producte", async (req, res) => {
+//Produits POST
+router.post("/product", async (req, res) => {
     const newProduct = new Product({
         name: req.body.name,
         description: req.body.description,
@@ -26,5 +26,20 @@ router.post("/producte", async (req, res) => {
         res.status(500).json(err)
     }
 })
+
+//Produits GET
+// router.get("/product", async(req, res) => {
+//     console.log("cela tourne")
+//     const returnList = await Product.find()
+//     res.json(returnList)
+    
+// })
+
+
+router.get("/product/chaise", async(req, res) => {
+    const category = await Product.findAll({"category":req.params.category});
+    res.json(category);
+})
+
 
 module.exports = router; 

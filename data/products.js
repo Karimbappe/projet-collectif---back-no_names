@@ -1,5 +1,6 @@
 const products =[
     {
+    "id":"1",
     "name":"Lasco Chaise",
     "category": "Chaise",
     "image":"https://www.my-furniture.com/media/catalog/product/cache/cc368a6b8cc4f25274cea070f9183754/l/a/lasco-dining-chair-navy-brass-front-webready.jpg",
