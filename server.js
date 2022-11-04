@@ -10,6 +10,7 @@ const productRoute = require("./routes/product");
 const dotenv = require("dotenv");
 dotenv.config();
 
+
 //to avoid CORS cross origin errors since we will use react and node server
 app.use((req, res, next) => {
   res.setHeader("Access-Control-Allow-Origin", "*");
@@ -49,20 +50,34 @@ app.get("/api/productss", (req, res) => {
 //parts of product from server
 app.get("/api/productz", (req, res) => {
   const partsOfProduct = products.map((p) => {
-    const { id, name, image } = p;
-    return { id, name, image };
+    const { id, name, category } = p;
+    return { id, name, category };
   });
   res.json(partsOfProduct);
 });
 
 //single product
-app.get("/api/productz/:id", (req, res) => {
-  const singleProduct = products.find((p) => p.id === req.params.id);
+app.get("/api/productz/:category", (req, res) => {
+  const singleProduct = products.find((p) => p.category === req.params.category);
   res.json(singleProduct);
 });
 
 app.get("/", (req, res) => {
   res.send("API is running ...");
+});
+
+
+app.use('/', (req, res, next) => {
+  const filters = req.query;
+  const filteredUsers = products.filter(user => {
+    let isValid = true;
+    for (key in filters) {
+      console.log(key, user[key], filters[key]);
+      isValid = isValid && user[key] == filters[key];
+    }
+    return isValid;
+  });
+  res.send(filteredUsers);
 });
 
 //launching a server
