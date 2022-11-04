@@ -3,6 +3,7 @@ const { Router } = require("express");
 const Product = require("../models/Product")
 
 
+
 //Produits POST
 router.post("/product", async (req, res) => {
     const newProduct = new Product({
@@ -35,12 +36,21 @@ router.get("/product", async(req, res) => {
     
 })
 
-
-router.get("products/category", async(req, res) => {
-    const category = await Product.find({category:"chaise"});
-    res.json(category);
-})
-
+ //filtrer
+ router.get('/filter', (req, res, next) => {
+    const filters = req.query;
+    console.log("cela rentre")
+    const filteredUsers = productRoute.filter(user => {
+      let isValid = true;
+      for (key in filters) {
+        console.log(key, user[key], filters[key]);
+        isValid = isValid && user[key] == filters[key];
+      }
+      return isValid;
+    });
+    res.send(filteredUsers);
+  });
+  
 
 
 module.exports = router; 

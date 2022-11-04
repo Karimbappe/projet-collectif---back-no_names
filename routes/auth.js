@@ -1,6 +1,10 @@
+
 const router = require("express").Router();
+
 //need to get the model to be able to Post
 const User = require("../models/User")
+const birthday = require("../models/User")
+
 //To be able to hash
 const CryptoJS = require("crypto-js");
 const jwt = require("jsonwebtoken")
@@ -12,6 +16,7 @@ router.post("/register", async (req, res) => {
     const newUser = new User({
         username: req.body.username,
         email: req.body.email,
+        birthday: req.body.birthday,
 
         //cryptojs pour hasher mdp ciphers
         password: CryptoJS.AES.encrypt(req.body.password, PASS_SEC).toString()

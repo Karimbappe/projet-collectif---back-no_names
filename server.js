@@ -30,7 +30,6 @@ app.use(express.json());
 app.use("/api", authRoute);
 app.use("/api", userRoute);
 app.use("/api", productRoute);
-//app.use("/api", getProductRoute);
 
 //connect to DB
 mongoose
@@ -39,20 +38,7 @@ mongoose
   .catch((err) => console.log(err));
 
 
-  //filter
-app.use('/filter', (req, res, next) => {
-  const filters = req.query;
-  const filteredUsers = productRoute.filter(user => {
-    let isValid = true;
-    for (key in filters) {
-      console.log(key, user[key], filters[key]);
-      isValid = isValid && user[key] == filters[key];
-    }
-    return isValid;
-  });
-  res.send(filteredUsers);
-});
-
+ 
 //launching a server
 app.listen(process.env.PORT || 8000, () =>
   console.log("server running on 8000...")
