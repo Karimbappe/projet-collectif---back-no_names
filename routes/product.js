@@ -35,10 +35,11 @@ router.post("/product", async (req, res) => {
 // })
 
 
-router.get("/product/chaise", async(req, res) => {
-    const category = await Product.findAll({"category":req.params.category});
+router.get("products/category", async(req, res) => {
+    const category = await Product.find({category:"chaise"});
     res.json(category);
 })
+
 
 
 module.exports = router; 

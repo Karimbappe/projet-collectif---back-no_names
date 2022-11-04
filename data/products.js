@@ -1,14 +1,14 @@
 const products =[
     {
     "id":"1",
-    "name":"Lasco Chaise",
+    "name":"Chaise",
     "category": "Chaise",
     "image":"https://www.my-furniture.com/media/catalog/product/cache/cc368a6b8cc4f25274cea070f9183754/l/a/lasco-dining-chair-navy-brass-front-webready.jpg",
     "description":"Chaise de salle à manger - Bleu marine - Base en laiton brossé",
     "size":"200x100",
     "color":"Bleu marine",
     "price": "399",
-    "inStock": "Yes",
+    "inStock": "1",
     "ratings": "3",
     "reviews": "0"
 
@@ -22,7 +22,7 @@ const products =[
     "size":"200x100",
     "color":"Bleu marine",
     "price": "399",
-    "inStock": "Yes",
+    "inStock": "1",
     "ratings": "3",
     "reviews": "0"
 
@@ -36,7 +36,7 @@ const products =[
     "size":"200x100",
     "color":"Bleu marine",
     "price": "399",
-    "inStock": "Yes",
+    "inStock": "1",
     "ratings": "5",
     "reviews": "2"
 
@@ -50,7 +50,7 @@ const products =[
     "size":"200x100",
     "color":"Bleu marine",
     "price": "189",
-    "inStock": "Yes",
+    "inStock": "0",
     "ratings": "3",
     "reviews": "3"
 
@@ -64,7 +64,7 @@ const products =[
     "size":"200x100",
     "color":"Bleu marine",
     "price": "249",
-    "inStock": "No",
+    "inStock": "1",
     "ratings": "5",
     "reviews": ""
 
@@ -78,7 +78,7 @@ const products =[
     "size":"200x100",
     "color":"Bleu marine",
     "price": "249",
-    "inStock": "Yes",
+    "inStock": "0",
     "ratings": "3",
     "reviews": "0"
 
@@ -92,7 +92,7 @@ const products =[
     "size":"200x100",
     "color":"Bleu marine",
     "price": "3 599",
-    "inStock": "Yes",
+    "inStock": "1",
     "ratings": "5",
     "reviews": "0"
 
@@ -106,7 +106,7 @@ const products =[
     "size":"200x100",
     "color":"Bleu marine",
     "price": "1 799",
-    "inStock": "No",
+    "inStock": "0",
     "ratings": "5",
     "reviews": "25"
 
@@ -120,7 +120,7 @@ const products =[
     "size":"200x100",
     "color":"Bleu marine",
     "price": "1 149",
-    "inStock": "Yes",
+    "inStock": "1",
     "ratings": "4",
     "reviews": "126"
 
@@ -134,7 +134,7 @@ const products =[
     "size":"200x100",
     "color":"Bleu marine",
     "price": "1 099",
-    "inStock": "Yes",
+    "inStock": "1",
     "ratings": "5",
     "reviews": "256"
 

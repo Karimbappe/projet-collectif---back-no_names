@@ -41,25 +41,41 @@ mongoose
   .then(() => console.log("DB connection established"))
   .catch((err) => console.log(err));
 
-//Load products from server
+//Affiche tous les produits (from : fichier donnée en dur)
 app.get("/api/productss", (req, res) => {
   res.json(products);
 });
 
-//parts of product from server
+//Affiche les 3 propriétés citées dans le code  
 app.get("/api/productz", (req, res) => {
   const partsOfProduct = products.map((p) => {
-    const { id, name, image } = p;
-    return { id, name, image };
+    const { id, name, image, category } = p;
+    return { id, name, image, category };
   });
   res.json(partsOfProduct);
 });
 
-//single product
-app.get("/api/productz/:id", (req, res) => {
-  const singleProduct = products.find((p) => p.id === req.params.id);
-  res.json(singleProduct);
+// //single product
+// app.get("/api/productz/:id", (req, res) => {
+//   const singleProduct = products.find((p) => p.id === req.params.id);
+//   res.json(singleProduct);
+// });
+
+// //Afficher uniquement que les catégories
+// app.get("/api/productz/", (req, res) => {
+//   const partsOfProduct = products.map((p) => {
+//     const {category } = p;
+//     return { category };
+//   });
+//   res.json(partsOfProduct);
+// });
+
+//Filtrer un critère dans la catégorie
+app.get("/api/productz/category", (req, res) => {
+  const sousCategorieProduct = products.findone((p) => p.chaise === req.params.chaise);
+  res.json(sousCategorieProduct);
 });
+
 
 app.get("/", (req, res) => {
   res.send("API is running ...");
