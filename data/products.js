@@ -16,7 +16,7 @@ const products =[
     {
     "id": "2",
     "name":"Lasco Chaise",
-    "category": "Chaise",
+    "category": "chaise",
     "image":"https://www.my-furniture.com/media/catalog/product/cache/cc368a6b8cc4f25274cea070f9183754/l/a/lasco-dining-chair-grey-silver-front-webready.jpg",
     "description":"Lasco Chaise de salle à manger - Gris colombe -Base en acier inoxydable brossé",
     "size":"200x100",
@@ -30,7 +30,7 @@ const products =[
     {
     "id": "3",
     "name":"Lasco Chaise",
-    "category": "Chaise",
+    "category": "chaise",
     "image":"https://www.my-furniture.com/media/catalog/product/cache/52d8b70e1575ccd3c17d6eeb92b82aac/l/a/lasco-dining-chair-chalk-brass-back-web.jpg",
     "description":"Lasco Chaise de salle à manger - Craie - Base en laiton brossé",
     "size":"200x100",
@@ -44,7 +44,7 @@ const products =[
     {
     "id": "4",
     "name":"Chaise Watson",
-    "category": "Chaise",
+    "category": "chaise",
     "image":"https://www.my-furniture.com/media/catalog/product/cache/52d8b70e1575ccd3c17d6eeb92b82aac/s/h/shoot-1-webready.jpg",
     "description":"Chaise Watson - Encre blue",
     "size":"200x100",

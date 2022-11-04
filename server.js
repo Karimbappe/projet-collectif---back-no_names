@@ -1,4 +1,3 @@
-
 const express = require("express");
 const { products } = require("./data/products.js");
 const app = express();
@@ -6,6 +5,7 @@ const mongoose = require("mongoose");
 const userRoute = require("./routes/user");
 const authRoute = require("./routes/auth");
 const productRoute = require("./routes/product");
+
 //const getProductRoute = require("./routes/getProduct")
 const dotenv = require("dotenv");
 dotenv.config();
@@ -24,10 +24,8 @@ app.use((req, res, next) => {
   next();
 });
 
-
 //to be able pass json data
 app.use(express.json());
-
 
 //routes
 app.use("/api", authRoute);
@@ -79,6 +77,20 @@ app.get("/api/productz/category", (req, res) => {
 
 app.get("/", (req, res) => {
   res.send("API is running ...");
+});
+
+//filtre
+app.use("/", (req, res, next) => {
+  const filters = req.query;
+  const filteredUsers = products.filter((user) => {
+    let isValid = true;
+    for (key in filters) {
+      console.log(key, user[key], filters[key]);
+      isValid = isValid && user[key] == filters[key];
+    }
+    return isValid;
+  });
+  res.send(filteredUsers);
 });
 
 //launching a server

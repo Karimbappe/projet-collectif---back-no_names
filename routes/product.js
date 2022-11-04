@@ -1,4 +1,5 @@
 const router = require("express").Router();
+const { Router } = require("express");
 const Product = require("../models/Product")
 
 
@@ -27,12 +28,12 @@ router.post("/product", async (req, res) => {
 })
 
 //Produits GET
-// router.get("/product", async(req, res) => {
-//     console.log("cela tourne")
-//     const returnList = await Product.find()
-//     res.json(returnList)
+router.get("/product", async(req, res) => {
+    console.log("cela tourne")
+    const returnList = await Product.find()
+    res.json(returnList)
     
-// })
+})
 
 
 router.get("products/category", async(req, res) => {
