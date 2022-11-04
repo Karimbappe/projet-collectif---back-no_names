@@ -28,18 +28,18 @@ router.post("/product", async (req, res) => {
 })
 
 //Produits GET
-// router.get("/product", async(req, res) => {
-//     console.log("cela tourne")
-//     const returnList = await Product.find()
-//     res.json(returnList)
+router.get("/product", async(req, res) => {
+    console.log("cela tourne")
+    const returnList = await Product.find()
+    res.json(returnList)
     
-// })
-
-
-router.get("/product/chaise", async(req, res) => {
-    const category = await Product.findAll({"category":req.params.category});
-    res.json(category);
 })
+
+
+// router.get("/product/chaise", async(req, res) => {
+//     const category = await Product.findAll({"category":req.params.category});
+//     res.json(category);
+// })
 
 
 module.exports = router; 
