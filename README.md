@@ -9,11 +9,15 @@ Voici des petits instructions pour commencer en back:
 3. install mongoDB
 
 4. Utiliser ces identifiants pour postman et mongodb : 
+
          a)username = ecommercerootnoname@gmail.com
+         
          b)password = ecommerce
 
 5. git clone notre projet 
 
-6. attends qq explications des bases 
+6. npm i dans le terminale pour vous metter a jour
 
-7. travailler :)
+7. attends qq explications des bases 
+
+8. travailler :)
