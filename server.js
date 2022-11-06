@@ -1,13 +1,18 @@
+//server express
 const express = require("express");
 const app = express();
+
+//BDD
 const mongoose = require("mongoose");
+
+//route importation
 const userRoute = require("./routes/user");
 const authRoute = require("./routes/auth");
 const productRoute = require("./routes/product");
 const cartRoute = require("./routes/cart");
 const orderRoute = require("./routes/order");
 
-//const getProductRoute = require("./routes/getProduct")
+//dot env sert a mettre de coté tes mdp et pas les transferer par git 
 const dotenv = require("dotenv");
 dotenv.config();
 
@@ -25,7 +30,7 @@ app.use((req, res, next) => {
   next();
 });
 
-//to be able pass json data
+//pour passer de la données json
 app.use(express.json());
 
 //routes
@@ -35,7 +40,7 @@ app.use("/api/products", productRoute);
 app.use("/api/carts", cartRoute);
 app.use("/api/orders", orderRoute);
 
-//connect to DB
+//connect to MONGODB
 mongoose
   .connect(process.env.MONGO_URL)
   .then(() => console.log("DB connection established"))
@@ -43,7 +48,7 @@ mongoose
 
 
  
-//launching a server
+//lance le server
 app.listen(process.env.PORT || 8000, () =>
   console.log("server running on 8000...")
 );

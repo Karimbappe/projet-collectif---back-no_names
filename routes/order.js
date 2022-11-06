@@ -12,6 +12,7 @@ router.post("/", verifyToken, async (req, res) => {
   const newOrder = new Order(req.body);
 
   try {
+    //save () fonction qui le sauvegarde a la base de données
     const savedOrder = await newOrder.save();
     console.log("order up")
     res.status(200).json(savedOrder);

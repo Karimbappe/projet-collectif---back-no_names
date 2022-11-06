@@ -1,17 +1,19 @@
 
 const router = require("express").Router();
 
-//need to get the model to be able to Post
+//doit avoir le model pour pouvoir le poster 
 const User = require("../models/User")
 
-//To be able to hash
+//pour hasher
 const CryptoJS = require("crypto-js");
+//pour les tokens
 const jwt = require("jsonwebtoken")
 
 
 
 //REGISTER
 router.post("/register", async (req, res) => { 
+    //comment on creer un utilisateur qui suit le model importer en haut 
     const newUser = new User({
         username: req.body.username,
         email: req.body.email,
@@ -23,7 +25,7 @@ router.post("/register", async (req, res) => {
     })
 
     try {
-        //save to database
+        //sauvegarde à la base de données
         const savedUser = await newUser.save()
        res.status(201).json(savedUser)
        console.log("utilisateur enregistrer")
@@ -55,9 +57,9 @@ router.post("/login", async (req, res) => {
     )
 
 
-//how to not show password 
+//comment montrer tous lobjet utilisateur sans reveler le mdp
 const { password,...others } = user._doc
-//... to not be stuck in others {}
+//... pour ne pas etre coincer dans un accolade others {}
     res.status(200).json({...others, accessToken})
    }
    catch{
