@@ -12,7 +12,7 @@ const productRoute = require("./routes/product");
 const cartRoute = require("./routes/cart");
 const orderRoute = require("./routes/order");
 
-//dot env sert a mettre de coté tes mdp et pas les transferer par git 
+//dot env sert a mettre de coté tes mdp et pas les transferer par git
 const dotenv = require("dotenv");
 dotenv.config();
 
@@ -46,8 +46,6 @@ mongoose
   .then(() => console.log("DB connection established"))
   .catch((err) => console.log(err));
 
-
- 
 //lance le server
 app.listen(process.env.PORT || 8000, () =>
   console.log("server running on 8000...")
