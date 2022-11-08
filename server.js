@@ -18,16 +18,16 @@ dotenv.config();
 
 //to avoid CORS cross origin errors since we will use react and node server
 app.use((req, res, next) => {
-  res.setHeader("Access-Control-Allow-Origin", "*");
-  res.setHeader(
-    "Access-Control-Allow-Headers",
-    "Origin, X-Requested-With, Content, Accept, Content-Type, Authorization"
-  );
-  res.setHeader(
-    "Access-Control-Allow-Methods",
-    "GET, POST, PUT, DELETE, PATCH, OPTIONS"
-  );
-  next();
+	res.setHeader("Access-Control-Allow-Origin", "*");
+	res.setHeader(
+		"Access-Control-Allow-Headers",
+		"Origin, X-Requested-With, Content, Accept, Content-Type, Authorization"
+	);
+	res.setHeader(
+		"Access-Control-Allow-Methods",
+		"GET, POST, PUT, DELETE, PATCH, OPTIONS"
+	);
+	next();
 });
 
 //pour passer de la données json
@@ -42,11 +42,11 @@ app.use("/api/orders", orderRoute);
 
 //connect to MONGODB
 mongoose
-  .connect(process.env.MONGO_URL)
-  .then(() => console.log("DB connection established"))
-  .catch((err) => console.log(err));
+	.connect(process.env.MONGO_URL)
+	.then(() => console.log("DB connection established"))
+	.catch((err) => console.log(err));
 
 //lance le server
-app.listen(process.env.PORT || 8000, () =>
-  console.log("server running on 8000...")
+app.listen(process.env.PORT || 8020, () =>
+	console.log("server running on 8020...")
 );
