@@ -11,6 +11,7 @@ const authRoute = require("./routes/auth");
 const productRoute = require("./routes/product");
 const cartRoute = require("./routes/cart");
 const orderRoute = require("./routes/order");
+const reviewRoute = require("./routes/review")
 
 //dot env sert a mettre de coté tes mdp et pas les transferer par git
 const dotenv = require("dotenv");
@@ -39,6 +40,7 @@ app.use("/api/user", userRoute);
 app.use("/api/products", productRoute);
 app.use("/api/carts", cartRoute);
 app.use("/api/orders", orderRoute);
+app.use("/api", reviewRoute)
 
 //connect to MONGODB
 mongoose
