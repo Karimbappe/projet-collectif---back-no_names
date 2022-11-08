@@ -5,7 +5,8 @@ const ReviewSchema = new mongoose.Schema(
 		userId: {type: String, required: true, unique: true},
 		username: {type: String, required: true, unique: true},
 		productId: {type: String, required: true, unique: true},
-		commment: {type: String, required: true},
+        titleName: {type: String, required: true},
+        commment: {type: String, required: true},
         ratingProduct: {type: Number},
 	},
 	//current time and date
