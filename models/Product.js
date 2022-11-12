@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 
 const ProductSchema = new mongoose.Schema(
     {
-        name : {type:String, required : true, unique : true},
+        name : {type:String, required : true},
         description : {type:String, required : true},
         image : {type:String, required : true},
         category : {type:String},
@@ -11,7 +11,6 @@ const ProductSchema = new mongoose.Schema(
         price : {type:Number, required : true},
         inStock : {type:Number, required : true},
         ratings : {type:Number, required :true},
-        reviews : {type:String, required : true},
        
     },
     //current time and date

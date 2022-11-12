@@ -2,10 +2,9 @@ const mongoose = require('mongoose');
 
 const UserSchema = new mongoose.Schema(
     {
-        username : {type:String, required : true, unique : true},
-        email : {type:String, required : true, unique : true},
-        birthday : {type:Number,required : true},
-        password : {type:String, required : true},
+        username : {type:String},
+        email : {type:String},
+        password : {type:String},
         isAdmin : {type:Boolean, default:false}
     },
     //current time and date

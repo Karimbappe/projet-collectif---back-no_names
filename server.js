@@ -1,6 +1,12 @@
 //server express
 const express = require("express");
 const app = express();
+const User = require("./models/User")
+
+
+//cors
+const cors = require("cors");
+
 
 //BDD
 const mongoose = require("mongoose");
@@ -13,11 +19,26 @@ const cartRoute = require("./routes/cart");
 const orderRoute = require("./routes/order");
 const reviewRoute = require("./routes/review");
 
+<<<<<<< HEAD
 //dot env sert a mettre de coté tes mdp et pas les transferer par git
 const dotenv = require("dotenv");
 dotenv.config();
+=======
+
+
+
+app.use(express.urlencoded({ extended: true}));
+var bodyParser = require('body-parser')
+app.use( bodyParser.json() );       // to support JSON-encoded bodies
+app.use(bodyParser.urlencoded({     // to support URL-encoded bodies
+  extended: true
+})); 
+//pour passer de la données json
+app.use(express.json());
+>>>>>>> 2013ce4 (new signup api)
 
 //to avoid CORS cross origin errors since we will use react and node server
+app.use(cors()); 
 app.use((req, res, next) => {
 	res.setHeader("Access-Control-Allow-Origin", "*");
 	res.setHeader(
@@ -31,10 +52,12 @@ app.use((req, res, next) => {
 	next();
 });
 
-//pour passer de la données json
-app.use(express.json());
+//dot env sert a mettre de coté tes mdp et pas les transferer par git 
+const dotenv = require("dotenv");
+dotenv.config();
 
 //routes
+
 app.use("/api/auth", authRoute);
 app.use("/api/user", userRoute);
 app.use("/api/products", productRoute);
