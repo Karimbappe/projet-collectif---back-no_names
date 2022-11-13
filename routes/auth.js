@@ -35,7 +35,7 @@ router.post("/register", (req, res) => {
                 .then(result => {
                   console.log(result);
                   res.status(201).json({
-                    message: "User created"
+                   result
                   });
                 })
                 .catch(err => {
@@ -50,11 +50,6 @@ router.post("/register", (req, res) => {
         )
       }
       );
-
-  
-
-
-
 //Login
 
 router.post("/login", async (req, res) => {
@@ -82,7 +77,7 @@ const { password,...others } = user._doc
     res.status(200).json({...others, accessToken})
    }
    catch{
-    res.status(500).json(err)
+    res.status(500).json("not good")
    }
 })
 

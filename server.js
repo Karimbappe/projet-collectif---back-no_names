@@ -19,11 +19,6 @@ const cartRoute = require("./routes/cart");
 const orderRoute = require("./routes/order");
 const reviewRoute = require("./routes/review");
 
-<<<<<<< HEAD
-//dot env sert a mettre de coté tes mdp et pas les transferer par git
-const dotenv = require("dotenv");
-dotenv.config();
-=======
 
 
 
@@ -35,7 +30,6 @@ app.use(bodyParser.urlencoded({     // to support URL-encoded bodies
 })); 
 //pour passer de la données json
 app.use(express.json());
->>>>>>> 2013ce4 (new signup api)
 
 //to avoid CORS cross origin errors since we will use react and node server
 app.use(cors()); 

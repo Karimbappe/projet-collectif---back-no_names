@@ -9,8 +9,8 @@ const ProductSchema = new mongoose.Schema(
         size : {type:String, required : true},
         color : {type:String, required : true},
         price : {type:Number, required : true},
-        inStock : {type:Number, required : true},
-        ratings : {type:Number, required :true},
+        inStock : {type:Number},
+        ratings : {type:Number},
        
     },
     //current time and date
